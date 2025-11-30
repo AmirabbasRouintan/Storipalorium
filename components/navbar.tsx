@@ -10,7 +10,7 @@ import {
 export function Navbar() {
   return (
     <nav className="flex justify-between m-5">
-      <div className="text-5xl tracking-tight text-foreground">
+      <div className="text-3xl md:text-5xl tracking-tight text-foreground">
         Storipalorium
       </div>
       <Dialog>
