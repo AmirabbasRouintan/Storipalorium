@@ -2,15 +2,20 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { XIcon } from "lucide-react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const segment = pathname.split("/")[1] || "";
+  const label = segment === "" ? "Storipalorium" : segment.toUpperCase();
 
   return (
     <nav className="flex justify-between m-4">
       <div className="text-3xl md:text-5xl tracking-tight text-foreground">
-        Storipalorium
+        {label}
       </div>
       <button 
         onClick={() => setIsOpen(true)} 
@@ -49,23 +54,23 @@ export function Navbar() {
           {/* Main Navigation */}
           <nav className="flex flex-col space-y-6 mb-8">
             <Link href="/" onClick={() => setIsOpen(false)} className="text-5xl md:text-7xl hover:opacity-75 transition-all duration-300 ease-in-out relative flex items-center group">
-              <img src="/hovered.svg" alt="" className="w-6 h-6 mr-4 absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Image src="/hovered.svg" alt="" width={24} height={24} className="w-6 h-6 mr-4 absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="ml-0 group-hover:translate-x-8 transition-transform duration-300">HOME</span>
             </Link>
             <Link href="/create" onClick={() => setIsOpen(false)} className="text-5xl md:text-7xl hover:opacity-75 transition-all duration-300 ease-in-out relative flex items-center group">
-              <img src="/hovered.svg" alt="" className="w-6 h-6 mr-4 absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Image src="/hovered.svg" alt="" width={24} height={24} className="w-6 h-6 mr-4 absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="ml-0 group-hover:translate-x-8 transition-transform duration-300">CREATE</span>
             </Link>
             <Link href="/category" onClick={() => setIsOpen(false)} className="text-5xl md:text-7xl hover:opacity-75 transition-all duration-300 ease-in-out relative flex items-center group">
-              <img src="/hovered.svg" alt="" className="w-6 h-6 mr-4 absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Image src="/hovered.svg" alt="" width={24} height={24} className="w-6 h-6 mr-4 absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="ml-0 group-hover:translate-x-8 transition-transform duration-300">CATEGORIES</span>
             </Link>
             <Link href="/api" onClick={() => setIsOpen(false)} className="text-5xl md:text-7xl hover:opacity-75 transition-all duration-300 ease-in-out relative flex items-center group">
-              <img src="/hovered.svg" alt="" className="w-6 h-6 mr-4 absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Image src="/hovered.svg" alt="" width={24} height={24} className="w-6 h-6 mr-4 absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="ml-0 group-hover:translate-x-8 transition-transform duration-300">API</span>
             </Link>
             <Link href="/login" onClick={() => setIsOpen(false)} className="text-5xl md:text-7xl hover:opacity-75 transition-all duration-300 ease-in-out relative flex items-center group">
-              <img src="/hovered.svg" alt="" className="w-6 h-6 mr-4 absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Image src="/hovered.svg" alt="" width={24} height={24} className="w-6 h-6 mr-4 absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="ml-0 group-hover:translate-x-8 transition-transform duration-300">LOGIN</span>
             </Link>
           </nav>
